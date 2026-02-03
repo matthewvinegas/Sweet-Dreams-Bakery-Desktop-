@@ -1,0 +1,198 @@
+/*gago ka guol*/
+#home-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url("Monika.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.menu-button {
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 3px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menu-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.menu-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#exit-button {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#exit-button:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+}
+
+/* Game Screen */
+#game-screen {
+    padding-top: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+.game-header h1 {
+    margin: 0;
+}
+
+.exit-game-btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.exit-game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Goals Container */
+.goals-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.goal-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #764ba2;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.goal-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.goal-count {
+    font-size: 24px;
+    font-weight: bold;
+    color: #764ba2;
+    min-width: 50px;
+}
+
+.goal-item.completed {
+    background: rgba(144, 238, 144, 0.9);
+    border-color: #28a745;
+}
+
+.goal-item.completed .goal-count {
+    color: #28a745;
+}
+
+body {
+    background: url("./background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(66, 237, 57);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+    background: url("tray.png") no-repeat center center;  
+    background-size: cover;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease; /* Smooth movement */
+}
+
+/* Falling animation */
+@keyframes fall {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+#board img.falling {
+    animation: fall 0.5s ease-out;
+}
+
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+#board img.popping {
+    animation: pop 0.3s ease-out;
+}
